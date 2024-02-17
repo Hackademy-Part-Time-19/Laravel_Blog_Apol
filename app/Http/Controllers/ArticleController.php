@@ -39,8 +39,9 @@ class ArticleController extends Controller
 
     public function Show($id)
     {
-        $articles=Article::all();
-        return view('Detaglio', ['articolo' => $this->$articles[$id]]);
+$article=Article::find($id);
+       
+        return view('Detaglio', ['articolo' =>$article ]);
     }
 
 
@@ -50,13 +51,9 @@ class ArticleController extends Controller
 
     public function ShowByCategory($categoria)
     {
-        $articles=Article::all();
-        $articoliPerCategoria = [];
-        foreach ($this->$articles as $article) {
-            if ($article['categoria'] == $categoria) {
-                $articoliPerCategoria[] = $article;
-            }
-        }
+       
+        $articoliPerCategoria =Article::where('categoria', $categoria)->get();
+    
         return view('ArticoliPerCategoria', ['Articoli' => $articoliPerCategoria]);
     }
 

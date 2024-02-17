@@ -14,7 +14,7 @@
                 <div class="row">
                     @foreach ($Articoli as $key => $articolo)
                         <x-cards :articolo="$articolo">
-                          
+                            <a href="{{ route('ArticleShow', ['id' => $key+1]) }}">Descrizione</a>
                         </x-cards>
                     @endforeach
                 </div>
