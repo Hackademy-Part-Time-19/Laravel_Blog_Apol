@@ -12,9 +12,16 @@
                 <h1>Non ci sono articoli</h1>
             @else
                 <div class="row">
-                    @foreach ($Articoli as $key => $articolo)
-                        <x-cards :articolo="$articolo">
-                            <a href="{{ route('ArticleShow', ['id' => $key+1]) }}">Descrizione</a>
+                    @foreach ($Articoli as $articolo)
+                        <x-cards 
+                    :name="$articolo['title']"
+                    :descrizione="$articolo['description']"
+                    :image="$articolo['image']"
+                    :id="$articolo['id']"
+                    :category="$articolo['categoria']"
+                    >
+                        
+                <a href="{{ route('ArticleShow', ['id' => $articolo['id']]) }}">Descrizione</a>
                         </x-cards>
                     @endforeach
                 </div>

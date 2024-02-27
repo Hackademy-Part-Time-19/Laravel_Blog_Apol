@@ -10,12 +10,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->string('title')->after('id');
-            $table->text('description')->after('title');
-            $table->string('categoria')->after('description');
-            $table->boolean('active')->after('categoria')->nullable();
-            $table->timestamp('added_at')->nullable();
-            $table->text('image');
+            $table->string('image')->after('id')->nullable();
+            $table->string('title')->after('image');
+            $table->string('categoria')->after('title');
+            $table->text('description')->after('categoria');
         });
     }
 

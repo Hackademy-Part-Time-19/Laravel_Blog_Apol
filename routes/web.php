@@ -20,8 +20,9 @@ Route::get('/Articoli/{categoria}', [ArticleController::class, 'ShowByCategory']
 
 Route::post('/Contatti/invio', [MailController::class, 'SendEmail'])->name('Email.send');
 
-Route::get('/article/create',[ArticleController::class,'create'])->name('article.create');
-
+Route::get('/article/create',[ArticleController::class,'create'])->name('article.create')->middleware('verified');
 
 Route::post('/article/store',[ArticleController::class,'store'])->name('article.store');
+
+Route::get('user/settings', function () {  return view('user.settings') ;})->name('user.settings') ->middleware('auth'); 
 

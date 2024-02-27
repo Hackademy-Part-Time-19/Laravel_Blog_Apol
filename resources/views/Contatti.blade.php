@@ -1,4 +1,6 @@
 <x-layout>
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column">
+  
     <h1 style="color: white">Contattaci</h1>
     <h2>
        <x-success/>
@@ -27,5 +29,5 @@
             <button type="submit" class="btn btn-primary">Invia</button>
         </form>
     </div>
-
+</div>
 </x-layout>
