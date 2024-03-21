@@ -24,10 +24,10 @@
             <label style="color:white;">Categoria:</label>
             <select style="width: 100%; background-color: white; height: 40px" name="categoria" >
             <option value="">Scegli la categoria</option>
-                <option value="Music">Music</option>
-                <option value="Arcade">Arcade</option>
-                <option value="Tv+">Tv+</option>
-                <option value="iBooks">iBooks</option>
+            @foreach($categories as $category)
+                <option value="Music">{{$category->name}}</option>
+    
+                @endforeach
             </select>
             @error('categoria') <div><span style="color: rgb(234, 55, 55)">{{ $message }}</span></div> @enderror
         </div>

@@ -1,5 +1,5 @@
 <x-layout>
-
+ <div id="canvas3d" style="width:20px;height:20px"></div>
     <section class="about"> 
         <h1 class="titoloArticoli">{{ $titoloArticoli }}</h1>
         <div class="description">

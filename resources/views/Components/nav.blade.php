@@ -2,7 +2,8 @@
     <img src="/imagini/LogoSignature.png" alt="">
     <ul>
         <li><a href="{{ route('HomePage') }}">Home</a></li>
-        <li><a href="{{ route('ArticleIdex') }}">Articoli</a></li>
+        <li><a href="{{ route('articles.index') }}">Articoli</a></li>
+        <li><a href="{{ route('categories.index') }}">Modifica Categoria</a></li>
         <li><a href="{{ route('WhoIam') }}">Chi Sono</a></li>
         <li class="nav-item dropdown">
             <a href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
@@ -13,13 +14,13 @@
                 class="dropdown-menu dropdown-menu-" aria-labelledby="navbarDarkDropdownMenuLink">
                 @foreach ($categories as $category)
                     <li><a id="cavolo" class="dropdown-item"
-                            href="{{ route('ArticoliPerCategoria', $category) }}">{{ $category }}</a></li>
+                            href="{{ route('ArticoliPerCategoria', $category) }}">{{ $category->name }}</a></li>
                 @endforeach
             </ul>
         </li>
-      @auth
-        <li><a href="{{ route('article.create') }}">Inserisci Articolo</a></li>
-      @endauth
+   
+            <li><a href="{{ route('article.create') }}">Inserisci Articolo</a></li>
+
         <li><a href="{{ route('Contacts') }}">Contatti</a></li>
     </ul>
     <div style="padding-bottom:15px " class="Register">
@@ -28,10 +29,10 @@
 
             <div style="display: flex; align-items: center">
                 @if (Auth::check('user'))
-                    <span style="color: white"> Bentornato <span> 
-                <a  style="color: #fec86a ;text-decoration: none" href="{{ route('user.settings') }}"> {{ Auth::user()->name }}</a>
-                           
-                            </span></span>
+                    <span style="color: white"> Bentornato <span>
+                            <a style="color: #fec86a ;text-decoration: none" href="{{ route('user.settings') }}">
+                                {{ Auth::user()->name }}</a>
+                        </span></span>
                     <form action="/logout" method="POST">
                         @csrf
                         <button style="background-color: rgba(255, 255, 255, 0); border: none" type="submit"
